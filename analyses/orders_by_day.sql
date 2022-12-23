@@ -4,7 +4,7 @@ with
     daily as (
         select
             order_date,
-            count(*) as order_num
+            count(*) as order_num,
             {% for order_status in [
     "return",
     "completed",
@@ -13,8 +13,8 @@ with
     "placed",
 ] %}
             sum(
-                case when status = {{ order_status }} then 1 else 0 end
-            ) as {{ order_status }}_total
+                case when status = '{{ order_status }}' then 1 else 0 end
+            ) as {{ order_status }}_total {{ ','if not loop.last }}
             {% endfor %}
         from orders
         group by 1
