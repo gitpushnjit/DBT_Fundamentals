@@ -5,6 +5,8 @@
         grant select on all views in schema {{ schema }} to {{ role }}
     {% endset %}
 
+    {{ log('Granting select on all tables and views in ' ~ schema ~ 'to role ' ~ role, info=True)}}
+
     {% do run_query(query) %}
 {% endmacro %}
 
