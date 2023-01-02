@@ -11,12 +11,6 @@ base_payments as (
 ),
 
 
-
-
-
-
-
-
 customer_order_history as (
     select 
         customers.customer_id,

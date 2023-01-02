@@ -1,8 +1,15 @@
-payments as (
+with source as (
+    select * from {{ source('stripe', 'payment') }}
+),
+
+
+transformed as (
     select 
     id as payment_id,
     orderid as order_id,
     status as paymeent_status,
     ROUND(amount/100.0,2) as payment_amount,
-    from payments
-),
+    from source
+)
+
+select * from transformed
