@@ -3,7 +3,7 @@ with customers as (
 ),
 
 orders as (
-    select * from {{ ref('syg_jaffle_shop__orders') }}
+    select * from {{ ref('stg_jaffle_shop__orders') }}
 ),
 
 payments as (
