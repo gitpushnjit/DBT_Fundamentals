@@ -1,13 +1,13 @@
-with base_customers as (
-    select * from {{ source('jaffle_shop', 'customers') }}
+with customers as (
+    select * from {{ ref('stg_jaffle_shop__customers') }}
 ),
 
-base_orders as (
-    select * from {{ source('jaffle_shop', 'orders') }}
+orders as (
+    select * from {{ source('syg_jaffle_shop__orders') }}
 ),
 
-base_payments as (
-    select * from {{ source('stripe', 'payment') }} 
+payments as (
+    select * from {{ source('stg_stripe__payments') }} 
 ),
 
 
