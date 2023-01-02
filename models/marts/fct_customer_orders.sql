@@ -51,7 +51,7 @@ customer_order_history as (
                 
         array_agg(distinct orders.order_id) as order_ids
 
-    from a        
+    from orders        
     join customers        
     on orders.customer_id = customers.customer_id        
     left outer join payments c        
