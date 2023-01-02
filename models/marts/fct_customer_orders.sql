@@ -17,7 +17,7 @@ customer_order_history as (
         customers.full_name,
         customers.surname,
         customers.givenname,
-        min(order_date) as first_order_date        ,        
+        min(order_date) as first_order_date,        
 
         min(case 
         when orders.order_status NOT IN ('returned','return_pending') 
