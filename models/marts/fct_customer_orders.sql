@@ -54,7 +54,7 @@ customer_order_history as (
     from orders        
     join customers        
     on orders.customer_id = customers.customer_id        
-    left outer join payments c        
+    left outer join payments         
     on orders.order_id = payments.order_id        
     where orders.order_status NOT IN ('pending') and payments.payment_status != 'fail'        
     group by customers.customer_id, customers.full_name, customers.surname, customers.givenname                 
