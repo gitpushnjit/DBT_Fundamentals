@@ -8,6 +8,17 @@ customers as (
     select * from {{ ref('stg_jaffle_shop__customers') }}
 ),
 
+-----
+final as (
+    select
+
+    from orders
+    inner join customers
+    on orders.customer_id=customers.customer_id
+)
+
+-----
+
 customer_order_history as (
     select 
         customers.customer_id,
